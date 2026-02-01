@@ -10,7 +10,6 @@
 ## 2. Gameplay Objectives
 
 Retrieve **three unique artifacts** without being captured:
-
 1. **The Noble Crest** (Grand Hall)
 2. **The Servant’s Ledger** (Servant Quarters)
 3. **The Golden Rose** (Hedge Maze)
@@ -18,17 +17,15 @@ Retrieve **three unique artifacts** without being captured:
 ## 3. Core Mechanics
 
 ### 🎭 Identity & Mask System
-
 | Mask | Safe Zone | Risk Zones |
 | :--- | :--- | :--- |
 | **Crimson (Noble)** | Grand Hall | Quarters / Garden |
 | **Azure (Servant)** | Servant Quarters | Hall / Garden |
-| **Emerald (Musician)** | Hedge Maze | Hall / Quarters |
+| **Emerald (Gardener)** | Hedge Maze | Hall / Quarters |
 
 * **Swap Rule:** Mask swapping is only possible in **Safe Zones** (areas with no guard vision cone overlap).
 
 ### 👁️ Detection & Suspicion System
-
 * **Vision Cones:** Guards have active 2D vision cones.
 * **Suspicion Meter:** Fills when entering a vision cone; speed depends on identity match.
 * **Capture:** 100% suspicion or no mask results in instant capture.
@@ -46,8 +43,8 @@ Retrieve **three unique artifacts** without being captured:
 * **Resolution:** 64x64 px (Tiles & Characters)
 * **Filter Mode:** Point (No Compression)
 * **Camera:** Fixed top-down with slight movement smoothing.
+* **Tilesets:** Kitchen, Storage (Depo 1/2), Carpet, Balcony, Parquet, Ice-tone Walls, Grey Floors, Tiles, Grass (4+ variations each).
 
-## 6. AI Architecture (Finite State Machine) BURASI KESİN DEĞİL
-
+## 6. AI Architecture (Finite State Machine)
 The AI cycles through the following states:
 **Patrol** -> **Suspicion** -> **Investigate** -> **Chase** -> **Search**.
