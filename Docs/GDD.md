@@ -1,53 +1,50 @@
-
 # 🎭 Game Design Document: Midnight Masquerade
 
 ## 1. Project Overview
 
 * **Genre:** Top-Down Stealth / Infiltration
 * **Theme:** Identity is your greatest disguise.
-
-* *********Platform:** ?????:*********
-
-* **Target Loop:** Infiltrate -> Swap Mask -> Steal Artifact -> Escape.
+* **Platform:** PC / Mobile (Unity)
+* **Core Loop:** Infiltrate -> Choose Identity -> Avoid Suspicion -> Steal Artifact -> Escape
 
 ## 2. Gameplay Objectives
 
-The player must infiltrate a high-society estate and retrieve **three unique artifacts** without being captured:
-
-1. **The Noble Crest** (Located in the Grand Hall)
-2. **The Servant’s Ledger** (Located in the Servant Quarters)
-3. **The Golden Rose** (Located in the Hedge Maze)
+Retrieve **three unique artifacts** without being captured:
+1. **The Noble Crest** (Grand Hall)
+2. **The Servant’s Ledger** (Servant Quarters)
+3. **The Golden Rose** (Hedge Maze)
 
 ## 3. Core Mechanics
 
 ### 🎭 Identity & Mask System
+| Mask | Safe Zone | Risk Zones |
+| :--- | :--- | :--- |
+| **Crimson (Noble)** | Grand Hall | Quarters / Garden |
+| **Azure (Servant)** | Servant Quarters | Hall / Garden |
+| **Emerald (Gardener)** | Hedge Maze | Hall / Quarters |
 
-Access to different zones depends on the active mask.
+* **Swap Rule:** Mask swapping is only possible in **Safe Zones** (areas with no guard vision cone overlap).
 
-* **Crimson Mask (Noble):** Allowed in the Grand Hall. High suspicion in Quarters/Garden.
-* **Azure Mask (Servant):** Allowed in the Servant Quarters. Suspicious in Grand Hall/Garden.
-* **Emerald Mask (Gardener):** Allowed in the Hedge Maze. Suspicious in Hall/Quarters.
-* **Swap Rule:** Swapping masks is only possible in designated **"Safe Zones"** (areas where no guard has line-of-sight).
-
-### 👁️ Detection System
-
-* **Vision Cones:** Guards have a 2D vision cone.
-* **Suspicion Meter:** * **Matching Mask:** Meter fills very slowly (social blending).
-* **Mismatched Mask:** Meter fills rapidly.
-* **No Mask/Caught in Act:** Instant capture.
-* **Capture Condition:** If suspicion reaches 100%, the player is caught.
+### 👁️ Detection & Suspicion System
+* **Vision Cones:** Guards have active 2D vision cones.
+* **Suspicion Meter:** Fills when entering a vision cone; speed depends on identity match.
+* **Capture:** 100% suspicion or no mask results in instant capture.
 
 ## 4. Level Design (Zones)
 
-| Zone | Primary Mask | Visual Aesthetic | Hazard Type |
-| --- | --- | --- | --- |
-| **Grand Hall** | Crimson | Luxury, Red Carpets, Gold | Open spaces, long vision lines. |
-| **Servant Quarters** | Azure | Gritty, Blue/Grey, Cramped | Narrow corridors, tight corners. |
-| **Hedge Maze** | Emerald | Nature, Green, Dark | Complex paths, many hiding spots. |
+| Zone | Identity | Design Focus |
+| :--- | :--- | :--- |
+| **Grand Hall** | Noble | Open space, long sightlines |
+| **Servant Quarters** | Servant | Tight corridors, blind corners |
+| **Hedge Maze** | Gardener | Obstructed vision, multiple paths |
 
-## 5. Technical Specifications
+## 5. Visual & Asset Specifications
 
-* **Resolution & Art:** 16x16 Pixel Art (Point Filter).
-* **Camera:** Fixed top-down or slight follow-smoothing.
-* **AI Architecture:** Finite State Machine (Patrol -> Suspect -> Investigate -> Chase -> Search).
-* **Scene Management:** All zones are connected via a single master map or individual scene transitions (TBD based on performance).
+* **Resolution:** 64x64 px (Tiles & Characters)
+* **Filter Mode:** Point (No Compression)
+* **Camera:** Fixed top-down with slight movement smoothing.
+* **Tilesets:** Kitchen, Storage (Depo 1/2), Carpet, Balcony, Parquet, Ice-tone Walls, Grey Floors, Tiles, Grass (4+ variations each).
+
+## 6. AI Architecture (Finite State Machine)
+The AI cycles through the following states:
+**Patrol** -> **Suspicion** -> **Investigate** -> **Chase** -> **Search**.
