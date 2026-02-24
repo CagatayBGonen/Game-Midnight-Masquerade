@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+=======
+Archive_v1/
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+/[Uu]nityConfiguration.gen.cpp
+/[Aa]ssets/AssetStoreTools*
+/Assets/Plugins/Editor/JetBrains*
+/ExportedObj/
+.consulo/
+.gradle/
+.idea/
+.vs/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+
+
+
+>>>>>>> b41c290761a04ba6737165245a0e5cda1d0872be
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
